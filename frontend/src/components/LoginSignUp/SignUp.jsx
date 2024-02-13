@@ -36,13 +36,13 @@ const SignUp = ({ setcurrentView, onForgetPassClick }) => {
       setTimeout(() => {
         setisError(false);
         seterrormessage("");
-      }, 7000);
+      }, 10000);
     }
   };
 
   return (
     <>
-      <div className="h-80 flex flex-col justify-center items-center rounded-t-full border border-solid border-gray-100 p-4 mb-4">
+      <div className=" md:h-[70vh] flex flex-col justify-center items-center border-gray-300 rounded-t-full border p-8 md:p-4 mb-4">
         <div className="flex justify-center items-center mt-2 mb-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,20 +57,29 @@ const SignUp = ({ setcurrentView, onForgetPassClick }) => {
             />
           </svg>
         </div>
+       
         <div className="flex flex-col justify-center items-center mb-4">
-          <div className="text-stone-900 text-2xl font-medium font-['sans-serif']">
-            Sign in
+          <div className="text-stone-900 text-3xl  md:text-2xl font-medium font-['sans-serif']">
+            Create your free account{" "}
+          </div>
+          <div>
+            <span className="text-stone-900 text-2xl md:text-lg font-medium font-['sans-serif']">
+              Takes less than
+            </span>{" "}
+            <span className=" text-green-600 text-xl md:text-lg font-medium font-['sans-serif']">
+              5 minutes...
+            </span>{" "}
           </div>
         </div>
         <div className="mx-10">
           <div className="mb-4">
           {isError ? (
           <div
-            class="bg-red-100 border border-red-400 text-red-700 px-2 py-1 rounded relative"
+            class="bg-red-100 border border-red-400 text-red-700 px-2 py-1 mb-2 rounded relative"
             role="alert"
           >
-            <strong class="font-bold">Holy smokes! </strong>
-            <span class="block sm:inline">{errormessage}</span>
+            <strong class="font-bold text-sm">Holy smokes! </strong>
+            <span class="block sm:inline text-sm">{errormessage}</span>
             {/* <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
     <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
   </span> */}
@@ -82,7 +91,7 @@ const SignUp = ({ setcurrentView, onForgetPassClick }) => {
               <input
                 type="name"
                 name="FullName"
-                className="w-full border-b rounded text-sm px-2 py-2"
+                className="w-full border-b border-blue-gray-900 mb-2 md:text-sm px-2 py-2"
                 placeholder="Enter your Full Name"
                 value={fullName}
                 onChange={(e)=>{
@@ -92,34 +101,34 @@ const SignUp = ({ setcurrentView, onForgetPassClick }) => {
               <input
                 type="email"
                 name="email"
-                className="w-full border-b rounded text-sm px-2 py-2"
+                className="w-full border-b border-blue-gray-900 mb-2  md:text-sm  px-2 py-2"
                 placeholder="Enter your email"
                 onChange={(e)=>{
                   setemail(e.target.value)
                 }}
               />
 
-              <div className="relative border-b mt-1 mb-4">
+              <div className="relative border-b border-blue-gray-900 mb-2">
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className=" border-gray-300 text-sm px-2 py-2 pr-8"
+                  className="w-full md:text-sm px-2 py-2 "
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute inset-y-0 right-0 px-2 py-2 rounded-r"
+                  className="absolute inset-y-0 right-0 px-2 py-2 "
                 >
                   {showPassword ? "🙂" : "😌"}
                 </button>
               </div>
-              <div className="flex justify-center mb-2 ">
+              <div className="flex justify-center mb-2 mt-4">
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="btn py-2 px-4 border border-black rounded-3xl"
+                  className="btn text-xl md:text-lg py-2 px-4 border border-black focus:border-green-700 rounded-3xl"
                 >
                   Sign in
                 </button>
